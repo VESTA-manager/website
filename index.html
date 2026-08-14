@@ -140,15 +140,16 @@ section:first-of-type{border-top:none}
 .mcard .body p{font-size:13.5px;line-height:1.6;color:var(--muted);margin-top:8px}
 
 /* ---------- MEET VESTA ---------- */
-.meet-grid3{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0;align-items:center;max-width:1180px;margin:0 auto;padding-bottom:74px}
+.meet-grid3{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;align-items:center;max-width:1180px;margin:0 auto;padding-bottom:74px}
 .meet-left{position:relative;display:flex;flex-direction:column;align-items:center}
 .liveview{position:absolute;top:100%;left:0;right:0;margin-top:26px;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);text-align:center;line-height:1.8}
 .liveview b{display:block;color:var(--green);font-weight:600;letter-spacing:.2em;margin-bottom:5px}
+@media(min-width:1151px){.liveview{white-space:nowrap}}
 .feat-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:64px}
 .meet-phone{position:relative;display:flex;justify-content:center;padding:8px 0}
 .meet-phone img{height:clamp(440px,46vw,690px);width:auto;display:block;border-radius:13.8%/6.3%;filter:drop-shadow(0 30px 52px rgba(40,38,30,.3))}
 /* ---------- CONVERSATION ---------- */
-.chat-col{display:flex;flex-direction:column;gap:14px;align-self:center;width:min(100%,560px);margin-inline:auto}
+.chat-col{display:flex;flex-direction:column;gap:14px;align-self:center;width:560px;max-width:100%;margin-left:0;margin-right:clamp(40px,9vw,130px)}
 .cbub{display:contents}
 .msg{max-width:84%;background:#fff;border:1px solid rgba(122,112,90,.13);border-radius:16px;padding:16px 20px;box-shadow:0 1px 2px rgba(40,38,30,.02),0 14px 32px -24px rgba(40,38,30,.24)}
 .msg.m-you{align-self:flex-start;border-top-left-radius:6px}
@@ -158,8 +159,8 @@ section:first-of-type{border-top:none}
 .msg.m-you .who{color:var(--faint)}
 .msg p{font-size:15px;line-height:1.45;color:var(--ink)}
 .msg p.sub{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.5}
-@media(max-width:1150px){.meet-grid3{gap:52px}.msg{padding:15px 18px}.msg p{font-size:14.5px}.msg p.sub{font-size:13.5px}}
-@media(max-width:940px){.meet-grid3{grid-template-columns:1fr;row-gap:30px;padding-bottom:0}.meet-left{display:contents}.meet-phone{order:1;position:relative;flex-direction:column;align-items:center;--phone-w:min(360px,72%)}.meet-phone img{height:auto;max-height:none;width:var(--phone-w);margin:0 auto}.chat-col{order:2;gap:12px;width:100%;max-width:none;margin-inline:0;align-self:stretch}.liveview{order:3;position:static;margin-top:0;font-size:11px;letter-spacing:.09em}.msg{max-width:79%;padding:13px 16px;box-shadow:0 10px 24px -14px rgba(40,38,30,.20)}.msg p{font-size:13.5px;line-height:1.45}.msg p.sub{font-size:13px;margin-top:5px}.feat-col{grid-template-columns:1fr;gap:14px;margin-top:8px}}
+@media(max-width:1150px){.msg{padding:15px 18px}.msg p{font-size:14.5px}.msg p.sub{font-size:13.5px}}
+@media(max-width:940px){.meet-grid3{grid-template-columns:1fr;row-gap:30px;padding-bottom:0}.meet-left{display:contents}.meet-phone{order:1;position:relative;flex-direction:column;align-items:center;--phone-w:min(360px,72%)}.meet-phone img{height:auto;max-height:none;width:var(--phone-w);margin:0 auto}.chat-col{order:2;gap:12px;width:100%;max-width:none;margin-left:0;margin-right:0;align-self:stretch}.liveview{order:3;position:static;margin-top:0;font-size:11px;letter-spacing:.09em}.msg{max-width:79%;padding:13px 16px;box-shadow:0 10px 24px -14px rgba(40,38,30,.20)}.msg p{font-size:13.5px;line-height:1.45}.msg p.sub{font-size:13px;margin-top:5px}.feat-col{grid-template-columns:1fr;gap:14px;margin-top:8px}}
 .meet-visual{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);align-self:center;background:var(--panel);display:flex;align-items:center}
 .meet-visual img{width:100%;height:auto;display:block}
 .meet-right{display:flex;flex-direction:column;justify-content:center}
@@ -551,12 +552,12 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
         </div>
         <div class="rp-last">
           <div>
-            <div class="lb" data-en="Last month's savings" data-fr="Économies du mois dernier">Last month's savings</div>
-            <div class="amt" data-amt="1528000">Rp 1.528.000</div>
+            <div class="lb" data-en="Last six months' savings" data-fr="Économies des six derniers mois">Last six months' savings</div>
+            <div class="amt" data-amt="9168000">Rp 9.168.000</div>
           </div>
           <div class="rp-delta">
             <span class="pct">+28%</span>
-            <span class="sub" data-en="vs previous month" data-fr="vs mois précédent">vs previous month</span>
+            <span class="sub" data-en="vs previous 6 months" data-fr="vs 6 mois précédents">vs previous 6 months</span>
           </div>
         </div>
         <div class="ex-grid">
