@@ -66,12 +66,12 @@ h2.big{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(30px
 
 /* ---------- HERO ---------- */
 .hero{position:relative;padding:0;border-top:none;overflow:hidden}
-.hero-inner{position:relative;z-index:2;padding-inline:32px;padding-block:68px 48px;display:grid;grid-template-columns:minmax(0,0.94fr) minmax(0,1.06fr);column-gap:56px;align-items:center}
-.hero-copy{max-width:none;padding-right:0;align-self:center}
+.hero-inner{position:relative;z-index:2;padding-inline:32px;padding-block:60px 48px;display:grid;grid-template-columns:minmax(0,0.78fr) minmax(0,1.22fr);column-gap:56px;align-items:start;row-gap:30px}
+.hero-copy{max-width:none;padding-right:0}
 .hero-eyebrow{color:var(--green);font-size:12.5px;letter-spacing:.32em;font-weight:700;text-transform:uppercase;margin-bottom:13px}
-.hero h1{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(21px,2.45vw,33px);line-height:1.14;letter-spacing:-.005em;text-transform:uppercase;text-wrap:balance;max-width:none}
+.hero h1{grid-column:1/-1;font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(21px,2.45vw,33px);line-height:1.14;letter-spacing:-.005em;text-transform:uppercase;white-space:nowrap;max-width:none}
 .hero h1 .acc{color:inherit;font-style:inherit}
-.hero .tag{font-family:'Playfair Display',serif;font-size:clamp(17px,1.75vw,22px);margin-top:20px;color:var(--ink2);white-space:normal}
+.hero .tag{font-family:'Playfair Display',serif;font-size:clamp(17px,1.75vw,22px);margin-top:0;color:var(--ink2);white-space:normal}
 .hero .tag b{color:var(--green);font-style:normal;font-weight:700}
 .hero p.intro{color:var(--muted);font-size:15.5px;line-height:1.62;margin-top:22px;max-width:44ch;text-wrap:pretty}
 .pillars{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px;max-width:440px}
@@ -83,7 +83,7 @@ h2.big{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(30px
 .pillar p{font-size:12px;color:var(--muted);line-height:1.45;margin-top:3px}
 .hero-stats{margin-top:36px;border-top:1px solid var(--line2);width:100%;max-width:560px}
 .hero-band{position:relative;z-index:2;padding-bottom:26px}
-.hero-band .row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2)}
+.hero-band .row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line2)}
 .hero-band .stat{min-width:0;padding:20px 24px 4px;margin:0;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line2)}
 .hero-band .stat:first-child{padding-left:0}
 .hero-band .stat:last-child{border-right:none;padding-right:0}
@@ -334,8 +334,8 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero">
   <div class="wrap hero-inner">
+    <h1 data-en='Your home. Intelligently autonomous.' data-fr='Votre maison. Intelligemment autonome.'>Your home. Intelligently autonomous.</h1>
     <div class="hero-copy">
-      <h1 data-en='Your home. Intelligently autonomous.' data-fr='Votre maison. Intelligemment autonome.'>Your home. Intelligently autonomous.</h1>
       <div class="tag" data-en='The <b>AI Manager</b> for your home.' data-fr='L&#39;<b>IA</b> qui gère votre maison.'>The <b>AI Manager</b> for your home.</div>
       <p class="intro" data-en="VESTA monitors, controls and optimises the systems that keep your home running, across energy, water, security, comfort and connectivity." data-fr="VESTA surveille, pilote et optimise les systèmes qui font vivre votre maison : énergie, eau, sécurité, confort et connectivité.">VESTA monitors, controls and optimises the systems that keep your home running, across energy, water, security, comfort and connectivity.</p>
       <div class="pillars">
@@ -370,7 +370,6 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
     <div class="lm-grid">
       <div class="lm-head">
         <h2 class="big" data-en='Your entire home, <span class="acc">in your hand.</span>' data-fr='Toute votre maison, <span class="acc">dans votre main.</span>'>Your entire home, <span class="acc">in your hand.</span></h2>
-        <p class="note" data-en="One visual map of the entire property." data-fr="Une carte visuelle de toute la propriété.">One visual map of the entire property.</p>
       </div>
       <div class="lm-body">
         <div class="lm-stage">
