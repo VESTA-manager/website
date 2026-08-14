@@ -243,11 +243,16 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 /* ---------- MOBILE NAV ---------- */
 .burger{display:none;background:none;border:1px solid var(--line2);border-radius:999px;width:40px;height:40px;cursor:pointer;color:var(--ink2);align-items:center;justify-content:center}
 .burger svg{width:18px;height:18px}
-.mnav{display:none;border-top:1px solid var(--line);background:var(--cream)}
+.burger .ic-close{display:none}
+.burger[aria-expanded="true"] .ic-bars{display:none}
+.burger[aria-expanded="true"] .ic-close{display:block}
+.mnav{display:none;border-top:1px solid var(--line);background:var(--panel);box-shadow:0 26px 44px -30px rgba(40,38,30,.45)}
 .mnav.open{display:block}
-.mnav ul{list-style:none;padding:12px 0 6px}
-.mnav a{display:block;padding:12px 0;font-size:16px;color:var(--ink2);border-bottom:1px solid var(--line)}
-.mnav .mfoot{display:flex;align-items:center;gap:12px;padding:16px 0 22px;flex-wrap:wrap}
+.mnav ul{list-style:none;padding:8px 0 0}
+.mnav a{display:block;padding:15px 0;font-size:16px;color:var(--ink2);border-bottom:1px solid var(--line)}
+.mnav li:last-child a{border-bottom:none}
+.mnav .mfoot{display:flex;align-items:center;gap:12px;padding:18px 0 26px;flex-wrap:wrap}
+.mnav .btn-demo{display:inline-flex;width:auto;max-width:100%;min-height:54px;padding:0 26px;font-size:15.5px;font-weight:600;letter-spacing:.01em;text-transform:none;white-space:nowrap;line-height:1.2;color:var(--cream);background:var(--green);border-radius:999px}
 
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:1050px){:root{--sec:68px}}
@@ -321,7 +326,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
         </div>
       </div>
       <a class="btn-demo" href="mailto:hello@vesta-services.org?subject=Private%20VESTA%20Demonstration" data-en="Private Demonstration" data-fr="Démonstration privée">Private Demonstration</a>
-      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><svg class="ic-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
   </div>
   <nav class="mnav" id="mnav">
@@ -334,7 +339,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
         <li><a href="#return" data-en="ROI" data-fr="ROI">ROI</a></li>
       </ul>
       <div class="mfoot">
-        <a class="btn-demo" href="mailto:hello@vesta-services.org?subject=Private%20VESTA%20Demonstration" data-en="Private Demonstration" data-fr="Démonstration privée">Private Demonstration</a>
+        <a class="btn-demo" href="mailto:hello@vesta-services.org?subject=Private%20VESTA%20Demonstration" data-en="Private demonstration" data-fr="Démonstration privée">Private demonstration</a>
       </div>
     </div>
   </nav>
