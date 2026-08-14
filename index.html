@@ -43,7 +43,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(245,242,235,.86);backdro
 .menu a:hover{color:var(--green)}
 .menu a.active{color:var(--ink)}
 .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--green)}
-.navtools{display:flex;align-items:center;gap:12px}
+.navtools{display:flex;align-items:center;gap:12px;margin-left:auto}
 .selctrl{position:relative}
 .selbtn{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--ink2);background:transparent;border:1px solid var(--line2);border-radius:999px;padding:8px 12px;cursor:pointer;transition:.2s}
 .selbtn:hover{border-color:var(--green);color:var(--green)}
@@ -60,7 +60,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(245,242,235,.86);backdro
 /* ---------- SECTION SCAFFOLD ---------- */
 section{padding:var(--sec) 0;border-top:1px solid var(--line)}
 section:first-of-type{border-top:none}
-.eyebrow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:34px}
+.eyebrow{display:flex;justify-content:flex-start;align-items:baseline;gap:12px;margin-bottom:34px}
 .eyebrow .lbl{font-size:11px;letter-spacing:.28em;font-weight:600;color:var(--faint);text-transform:uppercase}
 .kicker{font-size:12px;letter-spacing:.26em;font-weight:600;color:var(--green);text-transform:uppercase}
 
@@ -168,8 +168,9 @@ section:first-of-type{border-top:none}
 .fcard .hh h5{font-size:15.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
 .fcard p{font-size:15.5px;color:var(--muted);line-height:1.4}
 .fcard p.fsub{font-size:13.5px;color:var(--faint);line-height:1.45;margin-top:6px}
-.meet-quote{text-align:center;font-family:'Playfair Display',serif;font-size:clamp(21px,2.5vw,30px);margin-top:60px;color:var(--ink)}
-.meet-quote .g{color:var(--green);font-style:italic}
+.meet-quote,.ret-foot{text-align:center;font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(21px,2.5vw,30px);line-height:1.3;color:var(--ink);margin:56px 0 0}
+.meet-quote .g,.ret-foot .g{color:var(--green);font-style:italic;font-weight:400}
+.closing-sub{display:block;font-family:'Inter',system-ui,sans-serif;font-style:normal;font-weight:400;font-size:16px;line-height:1.6;color:var(--muted);margin-top:12px}
 
 /* ---------- THE RETURN ---------- */
 .return{background:var(--cream2)}
@@ -211,8 +212,6 @@ section:first-of-type{border-top:none}
 .ex .desc{font-size:12.5px;color:var(--ink2);margin:11px 0 11px;min-height:34px;grid-area:desc}
 .ex .save{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--green);grid-area:save}
 .ex .per{font-size:10.5px;color:var(--muted);grid-area:per}
-.ret-foot{text-align:center;font-family:'Playfair Display',serif;font-size:clamp(20px,2.4vw,28px);margin-top:52px}
-.ret-foot .g{color:var(--green);font-style:italic}
 
 /* ---------- CTA FOOTER ---------- */
 .cta{background:#12140f;color:#f3f1ea;text-align:center;padding:88px 0;border:none;position:relative;overflow:hidden}
@@ -373,7 +372,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 <section id="livingmap" style="padding-top:58px">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span class="kicker" data-en="One Living Map" data-fr="Une carte vivante">One Living Map</span><span class="lbl" data-en="02" data-fr="02">02</span></div>
+      <div class="eyebrow"><span class="lbl" data-en="02" data-fr="02">02</span><span class="kicker" data-en="One Living Map" data-fr="Une carte vivante">One Living Map</span></div>
       <h2 class="section-title" data-en='Your entire home, <span class="acc">in your hand.</span>' data-fr='Toute votre maison, <span class="acc">dans votre main.</span>'>Your entire home, <span class="acc">in your hand.</span></h2>
     </div>
     <div class="lm-grid">
@@ -403,7 +402,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 <section id="meet">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span class="kicker" data-en="AI Concierge" data-fr="Concierge IA">AI Concierge</span><span class="lbl" data-en="03" data-fr="03">03</span></div>
+      <div class="eyebrow"><span class="lbl" data-en="03" data-fr="03">03</span><span class="kicker" data-en="AI Concierge" data-fr="Concierge IA">AI Concierge</span></div>
       <h2 class="section-title" data-en='Your <span class="acc">AI concierge.</span>' data-fr='Votre <span class="acc">concierge IA.</span>'>Your <span class="acc">AI concierge.</span></h2>
       <p class="section-subtitle" data-en="Chat with your home, control every system, and receive clear monthly reports through VESTA." data-fr="Dialoguez avec votre maison, pilotez chaque système et recevez des rapports mensuels clairs via VESTA.">Chat with your home, control every system, and receive clear monthly reports through VESTA.</p>
     </div>
@@ -419,7 +418,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
           <div class="fcard"><div class="hh"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg></span><h5 data-en="Reports &amp; Savings" data-fr="Rapports &amp; économies">Reports &amp; Savings</h5></div><p data-en="Clear reports. Real savings." data-fr="Des rapports clairs. De vraies économies.">Clear reports. Real savings.</p><p class="fsub" data-en="Daily, weekly or monthly performance updates, savings summaries and recommended actions." data-fr="Performance, synthèse des économies et actions recommandées, au jour, à la semaine ou au mois.">Daily, weekly or monthly performance updates, savings summaries and recommended actions.</p></div>
       </div>
     </div>
-    <p class="meet-quote" data-en='Your home stays <span class="g">one step ahead.</span><br>VESTA predicts issues, takes action and shows you the result.' data-fr='Votre maison a <span class="g">toujours une longueur d&apos;avance.</span><br>VESTA anticipe les incidents, agit et vous en montre le résultat.'>Your home stays <span class="g">one step ahead.</span><br>VESTA predicts issues, takes action and shows you the result.</p>
+    <p class="meet-quote" data-en='Your home stays <span class="g">one step ahead.</span><span class="closing-sub">VESTA anticipates issues, takes action and keeps you informed.</span>' data-fr='Votre maison garde <span class="g">une longueur d&apos;avance.</span><span class="closing-sub">VESTA anticipe les incidents, agit et vous tient informé.</span>'>Your home stays <span class="g">one step ahead.</span><span class="closing-sub">VESTA anticipates issues, takes action and keeps you informed.</span></p>
   </div>
 </section>
 
@@ -427,7 +426,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 <section class="manages" id="manages">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span class="kicker" data-en="What VESTA Manages" data-fr="Ce que VESTA gère">What VESTA Manages</span><span class="lbl" data-en="04" data-fr="04">04</span></div>
+      <div class="eyebrow"><span class="lbl" data-en="04" data-fr="04">04</span><span class="kicker" data-en="What VESTA Manages" data-fr="Ce que VESTA gère">What VESTA Manages</span></div>
       <h2 class="section-title" data-en='Every system. <span class="acc">One intelligence.</span>' data-fr='Chaque système. <span class="acc">Une intelligence.</span>'>Every system. <span class="acc">One intelligence.</span></h2>
       <p class="section-subtitle" data-en="One AI manager connecting the systems that protect, power and operate your home." data-fr="Un seul manager IA qui relie les systèmes qui protègent, alimentent et font fonctionner votre maison.">One AI manager connecting the systems that protect, power and operate your home.</p>
     </div>
@@ -482,7 +481,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 <section class="return" id="return">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span class="kicker" data-en="The Return" data-fr="Le retour">The Return</span><span class="lbl" data-en="05" data-fr="05">05</span></div>
+      <div class="eyebrow"><span class="lbl" data-en="05" data-fr="05">05</span><span class="kicker" data-en="The Return" data-fr="Le retour">The Return</span></div>
       <h2 class="section-title" data-en='Intelligence with a <span class="acc">measurable return.</span>' data-fr='Une intelligence au <span class="acc">retour mesurable.</span>'>Intelligence with a <span class="acc">measurable return.</span></h2>
       <p class="section-subtitle" data-en="VESTA identifies waste, prevents unnecessary costs and makes the financial impact visible." data-fr="VESTA identifie le gaspillage, évite les coûts inutiles et rend l'impact financier visible.">VESTA identifies waste, prevents unnecessary costs and makes the financial impact visible.</p>
     </div>
@@ -493,6 +492,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
           <button type="button" data-cur="IDR" class="on">IDR</button>
           <button type="button" data-cur="SGD">SGD</button>
           <button type="button" data-cur="USD">USD</button>
+          <button type="button" data-cur="EUR">EUR</button>
         </div>
       </div>
       <div class="ret-panel">
@@ -620,7 +620,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
   });
 
   /* ---------- currency ---------- */
-  var RATES={IDR:{r:1,sym:'Rp ',loc:'id-ID'},SGD:{r:1/12000,sym:'S$ ',loc:'en-SG'},USD:{r:1/16000,sym:'$ ',loc:'en-US'}};
+  var RATES={IDR:{r:1,sym:'Rp ',loc:'id-ID'},SGD:{r:1/12000,sym:'S$ ',loc:'en-SG'},USD:{r:1/16000,sym:'$ ',loc:'en-US'},EUR:{r:1/17500,sym:'\u20ac ',loc:'de-DE'}};
   function fmt(base,c){var m=RATES[c];return m.sym+Math.round(base*m.r).toLocaleString(m.loc);}
   function fmtShort(base,c){var m=RATES[c],v=base*m.r;
     if(v>=1e6)return (Math.round(v/1e5)/10).toString().replace(/\.0$/,'')+'M';
