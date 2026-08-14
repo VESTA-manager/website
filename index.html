@@ -72,8 +72,8 @@ section:first-of-type{border-top:none}
 
 /* ---------- HERO ---------- */
 .hero{position:relative;padding:0;border-top:none;overflow:hidden}
-.hero-inner{position:relative;z-index:2;padding-inline:32px;padding-block:60px 58px;display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);column-gap:24px;align-items:start;row-gap:30px}
-.hero-copy{max-width:none;padding-right:0;align-self:start}
+.hero-inner{position:relative;z-index:2;padding-inline:32px;padding-block:60px 58px;display:grid;grid-template-columns:minmax(0,318px) minmax(0,1fr);column-gap:14px;align-items:start;row-gap:30px}
+.hero-copy{max-width:none;padding-right:0;align-self:center}
 .hero-eyebrow{color:var(--green);font-size:12.5px;letter-spacing:.32em;font-weight:700;text-transform:uppercase;margin-bottom:13px}
 .hero h1{grid-column:1/-1;font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(30px,4.3vw,50px);line-height:1.08;letter-spacing:-.005em;white-space:nowrap;max-width:none}
 .hero p.intro{color:var(--muted);font-size:15.5px;line-height:1.62;margin-top:0;max-width:44ch;text-wrap:pretty}
@@ -140,15 +140,15 @@ section:first-of-type{border-top:none}
 .mcard .body p{font-size:13.5px;line-height:1.6;color:var(--muted);margin-top:8px}
 
 /* ---------- MEET VESTA ---------- */
-.meet-grid3{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:72px;align-items:center;max-width:1180px;margin:0 auto}
-.meet-left{display:flex;flex-direction:column;align-items:center;gap:28px}
-.liveview{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);text-align:center;line-height:1.8;margin:0}
+.meet-grid3{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0;align-items:center;max-width:1180px;margin:0 auto;padding-bottom:74px}
+.meet-left{position:relative;display:flex;flex-direction:column;align-items:center}
+.liveview{position:absolute;top:100%;left:0;right:0;margin-top:26px;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);text-align:center;line-height:1.8}
 .liveview b{display:block;color:var(--green);font-weight:600;letter-spacing:.2em;margin-bottom:5px}
 .feat-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:64px}
 .meet-phone{position:relative;display:flex;justify-content:center;padding:8px 0}
 .meet-phone img{height:clamp(440px,46vw,690px);width:auto;display:block;border-radius:13.8%/6.3%;filter:drop-shadow(0 30px 52px rgba(40,38,30,.3))}
 /* ---------- CONVERSATION ---------- */
-.chat-col{display:flex;flex-direction:column;gap:14px;align-self:center}
+.chat-col{display:flex;flex-direction:column;gap:14px;align-self:center;width:min(100%,560px);margin-inline:auto}
 .cbub{display:contents}
 .msg{max-width:84%;background:#fff;border:1px solid rgba(122,112,90,.13);border-radius:16px;padding:16px 20px;box-shadow:0 1px 2px rgba(40,38,30,.02),0 14px 32px -24px rgba(40,38,30,.24)}
 .msg.m-you{align-self:flex-start;border-top-left-radius:6px}
@@ -159,7 +159,7 @@ section:first-of-type{border-top:none}
 .msg p{font-size:15px;line-height:1.45;color:var(--ink)}
 .msg p.sub{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.5}
 @media(max-width:1150px){.meet-grid3{gap:52px}.msg{padding:15px 18px}.msg p{font-size:14.5px}.msg p.sub{font-size:13.5px}}
-@media(max-width:940px){.meet-grid3{grid-template-columns:1fr;row-gap:30px}.meet-left{display:contents}.meet-phone{order:1;position:relative;flex-direction:column;align-items:center;--phone-w:min(360px,72%)}.meet-phone img{height:auto;max-height:none;width:var(--phone-w);margin:0 auto}.chat-col{order:2;gap:12px;width:100%;align-self:stretch}.liveview{order:3;font-size:11px;letter-spacing:.09em}.msg{max-width:79%;padding:13px 16px;box-shadow:0 10px 24px -14px rgba(40,38,30,.20)}.msg p{font-size:13.5px;line-height:1.45}.msg p.sub{font-size:13px;margin-top:5px}.feat-col{grid-template-columns:1fr;gap:14px;margin-top:8px}}
+@media(max-width:940px){.meet-grid3{grid-template-columns:1fr;row-gap:30px;padding-bottom:0}.meet-left{display:contents}.meet-phone{order:1;position:relative;flex-direction:column;align-items:center;--phone-w:min(360px,72%)}.meet-phone img{height:auto;max-height:none;width:var(--phone-w);margin:0 auto}.chat-col{order:2;gap:12px;width:100%;max-width:none;margin-inline:0;align-self:stretch}.liveview{order:3;position:static;margin-top:0;font-size:11px;letter-spacing:.09em}.msg{max-width:79%;padding:13px 16px;box-shadow:0 10px 24px -14px rgba(40,38,30,.20)}.msg p{font-size:13.5px;line-height:1.45}.msg p.sub{font-size:13px;margin-top:5px}.feat-col{grid-template-columns:1fr;gap:14px;margin-top:8px}}
 .meet-visual{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);align-self:center;background:var(--panel);display:flex;align-items:center}
 .meet-visual img{width:100%;height:auto;display:block}
 .meet-right{display:flex;flex-direction:column;justify-content:center}
@@ -204,7 +204,7 @@ section:first-of-type{border-top:none}
 .rp-delta{text-align:right}
 .rp-delta .pct{display:block;font-size:19px;font-weight:700;color:var(--green)}
 .rp-delta .sub{font-size:12px;color:var(--muted)}
-.ex .savelb{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:1px;grid-area:savelb}
+.ex .savelb{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--faint);margin-bottom:2px;grid-area:savelb}
 .badge-up{display:inline-flex;align-items:center;gap:5px;background:var(--green-soft);color:var(--green);font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px}
 .ret-graph svg{width:210px;height:60px}
 .ex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
@@ -212,9 +212,9 @@ section:first-of-type{border-top:none}
 .ex .ei{width:30px;height:30px;border-radius:8px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--green);margin-bottom:0;grid-area:icon;align-self:center}
 .ex .ei svg{width:16px;height:16px}
 .ex .cat{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;grid-area:cat;align-self:center}
-.ex .desc{font-size:12.5px;color:var(--ink2);margin:11px 0 11px;min-height:34px;grid-area:desc}
-.ex .save{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--green);grid-area:save}
-.ex .per{font-size:10.5px;color:var(--muted);grid-area:per}
+.ex .desc{font-size:12.5px;color:var(--ink2);margin:11px 0 6px;min-height:34px;grid-area:desc}
+.ex .save{font-family:'Playfair Display',serif;font-size:23px;font-weight:600;color:var(--green);line-height:1.15;letter-spacing:-.01em;grid-area:save}
+.ex .per{font-size:10.5px;color:var(--faint);margin-top:1px;grid-area:per}
 
 /* ---------- CTA FOOTER ---------- */
 .cta{background:#12140f;color:#f3f1ea;text-align:center;padding:88px 0;border:none;position:relative;overflow:hidden}
@@ -380,7 +380,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 <section id="livingmap" style="padding-top:58px">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span class="lbl" data-en="02" data-fr="02">02</span><span class="kicker" data-en="One Living Map" data-fr="Une carte vivante">One Living Map</span></div>
+      <div class="eyebrow"><span class="lbl" data-en="01" data-fr="01">01</span><span class="kicker" data-en="One Living Map" data-fr="Une carte vivante">One Living Map</span></div>
       <h2 class="section-title" data-en='Your entire home, <span class="acc">in your hand.</span>' data-fr='Toute votre maison, <span class="acc">dans votre main.</span>'>Your entire home, <span class="acc">in your hand.</span></h2>
     </div>
     <div class="lm-grid">
@@ -410,7 +410,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 <section id="meet">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span class="lbl" data-en="03" data-fr="03">03</span><span class="kicker" data-en="AI Concierge" data-fr="Concierge IA">AI Concierge</span></div>
+      <div class="eyebrow"><span class="lbl" data-en="02" data-fr="02">02</span><span class="kicker" data-en="AI Concierge" data-fr="Concierge IA">AI Concierge</span></div>
       <h2 class="section-title" data-en='Your <span class="acc">AI concierge.</span>' data-fr='Votre <span class="acc">concierge IA.</span>'>Your <span class="acc">AI concierge.</span></h2>
       <p class="section-subtitle" data-en="Chat with your home, control every system, and receive clear monthly reports through VESTA." data-fr="Dialoguez avec votre maison, pilotez chaque système et recevez des rapports mensuels clairs via VESTA.">Chat with your home, control every system, and receive clear monthly reports through VESTA.</p>
     </div>
@@ -446,7 +446,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 <section class="manages" id="manages">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span class="lbl" data-en="04" data-fr="04">04</span><span class="kicker" data-en="What VESTA Manages" data-fr="Ce que VESTA gère">What VESTA Manages</span></div>
+      <div class="eyebrow"><span class="lbl" data-en="03" data-fr="03">03</span><span class="kicker" data-en="What VESTA Manages" data-fr="Ce que VESTA gère">What VESTA Manages</span></div>
       <h2 class="section-title" data-en='Every system. <span class="acc">One intelligence.</span>' data-fr='Chaque système. <span class="acc">Une intelligence.</span>'>Every system. <span class="acc">One intelligence.</span></h2>
       <p class="section-subtitle" data-en="One AI manager connecting the systems that protect, power and operate your home." data-fr="Un seul manager IA qui relie les systèmes qui protègent, alimentent et font fonctionner votre maison.">One AI manager connecting the systems that protect, power and operate your home.</p>
     </div>
@@ -501,7 +501,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 <section class="return" id="return">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span class="lbl" data-en="05" data-fr="05">05</span><span class="kicker" data-en="The Return" data-fr="Le retour">The Return</span></div>
+      <div class="eyebrow"><span class="lbl" data-en="04" data-fr="04">04</span><span class="kicker" data-en="The Return" data-fr="Le retour">The Return</span></div>
       <h2 class="section-title" data-en='Intelligence with a <span class="acc">measurable return.</span>' data-fr='Une intelligence au <span class="acc">retour mesurable.</span>'>Intelligence with a <span class="acc">measurable return.</span></h2>
       <p class="section-subtitle" data-en="VESTA identifies waste, prevents unnecessary costs and makes the financial impact visible." data-fr="VESTA identifie le gaspillage, évite les coûts inutiles et rend l'impact financier visible.">VESTA identifies waste, prevents unnecessary costs and makes the financial impact visible.</p>
     </div>
