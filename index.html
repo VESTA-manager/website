@@ -280,6 +280,15 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
   .hero-band .row{grid-template-columns:1fr 1fr}
   .hero-band .stat{border-right:none;padding:14px 0 4px}
   .section-subtitle{font-size:16px}
+  /* compact ROI breakdown cards: category + amount share one line */
+  .ret-panel{padding:18px 16px}
+  .ex{display:grid;grid-template-columns:30px minmax(0,1fr) auto;grid-template-areas:"icon cat save" ". desc per";column-gap:10px;row-gap:2px;align-items:baseline;padding:12px 13px}
+  .ex .ei{grid-area:icon;margin-bottom:0;align-self:center}
+  .ex .cat{grid-area:cat}
+  .ex .save{grid-area:save;text-align:right;white-space:nowrap}
+  .ex .desc{grid-area:desc;margin:0;min-height:0}
+  .ex .per{grid-area:per;text-align:right;white-space:nowrap}
+  .ex .savelb{display:none}
   .cta{padding:60px 0}
   .cta .btn-demo{white-space:normal;max-width:100%;padding:14px 24px;line-height:1.3}
 }
