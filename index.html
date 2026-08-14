@@ -76,10 +76,8 @@ section:first-of-type{border-top:none}
 .hero-copy{max-width:none;padding-right:0;align-self:start}
 .hero-eyebrow{color:var(--green);font-size:12.5px;letter-spacing:.32em;font-weight:700;text-transform:uppercase;margin-bottom:13px}
 .hero h1{grid-column:1/-1;font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(30px,4.3vw,50px);line-height:1.08;letter-spacing:-.005em;white-space:nowrap;max-width:none}
-.hero .tag{font-family:'Playfair Display',serif;font-size:clamp(17px,1.75vw,22px);margin-top:0;color:var(--ink2);white-space:normal}
-.hero .tag b{color:var(--green);font-style:normal;font-weight:700}
-.hero p.intro{color:var(--muted);font-size:15.5px;line-height:1.62;margin-top:22px;max-width:44ch;text-wrap:pretty}
-.pillars{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px;max-width:440px}
+.hero p.intro{color:var(--muted);font-size:15.5px;line-height:1.62;margin-top:0;max-width:44ch;text-wrap:pretty}
+.pillars{display:grid;grid-template-columns:1fr;gap:18px;margin-top:30px;max-width:440px}
 .pillar{display:grid;grid-template-columns:33px 1fr;column-gap:13px;align-items:start;min-width:0}
 .pillar.p-auto{grid-column:1}
 .pillar .ic{width:33px;height:33px;flex:none;border-radius:50%;background:var(--green-soft);display:grid;place-items:center;color:var(--green)}
@@ -150,17 +148,18 @@ section:first-of-type{border-top:none}
 .meet-phone{position:relative;display:flex;justify-content:center;padding:8px 0}
 .meet-phone img{height:clamp(440px,46vw,690px);width:auto;display:block;border-radius:13.8%/6.3%;filter:drop-shadow(0 30px 52px rgba(40,38,30,.3))}
 /* ---------- CONVERSATION ---------- */
-.chat-col{display:flex;flex-direction:column;gap:18px;align-self:center}
-.cbub{position:static;width:auto;background:#fff;border:1px solid rgba(122,112,90,.13);border-radius:16px;padding:22px 24px;box-shadow:0 1px 2px rgba(40,38,30,.02),0 18px 38px -28px rgba(40,38,30,.26)}
-.msg+.msg{margin-top:16px}
+.chat-col{display:flex;flex-direction:column;gap:14px;align-self:center}
+.cbub{display:contents}
+.msg{max-width:84%;background:#fff;border:1px solid rgba(122,112,90,.13);border-radius:16px;padding:16px 20px;box-shadow:0 1px 2px rgba(40,38,30,.02),0 14px 32px -24px rgba(40,38,30,.24)}
+.msg.m-you{align-self:flex-start;border-top-left-radius:6px}
+.msg.m-vesta{align-self:flex-end;border-top-right-radius:6px}
 .msg .who{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
 .msg.m-vesta .who{color:var(--green)}
 .msg.m-you .who{color:var(--faint)}
 .msg p{font-size:15px;line-height:1.45;color:var(--ink)}
 .msg p.sub{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.5}
-.only-mobile{display:none}
-@media(max-width:1150px){.meet-grid3{gap:52px}.cbub{padding:19px 21px}.msg p{font-size:14.5px}.msg p.sub{font-size:13.5px}}
-@media(max-width:940px){.meet-grid3{grid-template-columns:1fr;row-gap:30px}.meet-left{display:contents}.meet-phone{order:1;position:relative;flex-direction:column;align-items:center;--phone-w:min(360px,72%)}.meet-phone img{height:auto;max-height:none;width:var(--phone-w);margin:0 auto}.chat-col{order:2;gap:12px;width:100%;align-self:stretch}.liveview{order:3;font-size:11px;letter-spacing:.09em}.cbub{display:contents}.only-mobile{display:block}.msg{max-width:79%;background:#fff;border:1px solid rgba(122,112,90,.13);border-radius:16px;padding:13px 16px;box-shadow:0 10px 24px -14px rgba(40,38,30,.20)}.msg+.msg{margin-top:0}.msg.m-you{align-self:flex-start;border-top-left-radius:6px}.msg.m-vesta{align-self:flex-end;border-top-right-radius:6px}.msg p{font-size:13.5px;line-height:1.45}.msg p.sub{font-size:13px;margin-top:5px}.feat-col{grid-template-columns:1fr;gap:14px;margin-top:8px}}
+@media(max-width:1150px){.meet-grid3{gap:52px}.msg{padding:15px 18px}.msg p{font-size:14.5px}.msg p.sub{font-size:13.5px}}
+@media(max-width:940px){.meet-grid3{grid-template-columns:1fr;row-gap:30px}.meet-left{display:contents}.meet-phone{order:1;position:relative;flex-direction:column;align-items:center;--phone-w:min(360px,72%)}.meet-phone img{height:auto;max-height:none;width:var(--phone-w);margin:0 auto}.chat-col{order:2;gap:12px;width:100%;align-self:stretch}.liveview{order:3;font-size:11px;letter-spacing:.09em}.msg{max-width:79%;padding:13px 16px;box-shadow:0 10px 24px -14px rgba(40,38,30,.20)}.msg p{font-size:13.5px;line-height:1.45}.msg p.sub{font-size:13px;margin-top:5px}.feat-col{grid-template-columns:1fr;gap:14px;margin-top:8px}}
 .meet-visual{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);align-self:center;background:var(--panel);display:flex;align-items:center}
 .meet-visual img{width:100%;height:auto;display:block}
 .meet-right{display:flex;flex-direction:column;justify-content:center}
@@ -255,7 +254,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 @media(max-width:940px){
   .menu{display:none}
   .burger{display:flex}
-  .hero h1,.hero .tag{white-space:normal;text-wrap:balance}
+  .hero h1{white-space:normal;text-wrap:balance}
   .section-subtitle{font-size:16.5px}
   .hero{display:flex;flex-direction:column}
   .hero-inner{padding:32px 32px 8px;order:1;width:100%;margin-left:0;margin-right:0;grid-template-columns:1fr;column-gap:0;row-gap:18px}
@@ -346,7 +345,6 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
   <div class="wrap hero-inner">
     <h1 data-en='Your home. <span class="acc">Intelligently autonomous.</span>' data-fr='Votre maison. <span class="acc">Intelligemment autonome.</span>'>Your home. <span class="acc">Intelligently autonomous.</span></h1>
     <div class="hero-copy">
-      <div class="tag" data-en='The <b>AI Manager</b> for your home.' data-fr='L&#39;<b>IA</b> qui gère votre maison.'>The <b>AI Manager</b> for your home.</div>
       <p class="intro" data-en="VESTA monitors, controls and optimises the systems that keep your home running, across energy, water, security, comfort and connectivity. It reduces waste, lowers operating costs and keeps everything effortlessly under control." data-fr="VESTA surveille, pilote et optimise les systèmes qui font vivre votre maison : énergie, eau, sécurité, confort et connectivité. Elle réduit le gaspillage, abaisse les coûts d'exploitation et garde tout sous contrôle, sans effort.">VESTA monitors, controls and optimises the systems that keep your home running, across energy, water, security, comfort and connectivity. It reduces waste, lowers operating costs and keeps everything effortlessly under control.</p>
       <div class="pillars">
         <div class="pillar">
@@ -425,7 +423,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
           <div class="msg m-vesta"><span class="who" data-en="VESTA" data-fr="VESTA">VESTA</span><p data-en="The guest room AC has been running since 3:00 AM." data-fr="La clim de la chambre d'amis tourne depuis 3h00.">The guest room AC has been running since 3:00 AM.</p><p class="sub" data-en="I adjusted the temperature and reduced unnecessary energy use." data-fr="J'ai ajusté la température et réduit la consommation inutile.">I adjusted the temperature and reduced unnecessary energy use.</p></div>
         </div>
         <div class="cbub">
-          <div class="msg m-you only-mobile"><span class="who" data-en="You" data-fr="Vous">You</span><p data-en="Thanks. Send me the monthly report." data-fr="Merci. Envoie-moi le rapport mensuel.">Thanks. Send me the monthly report.</p></div>
+          <div class="msg m-you"><span class="who" data-en="You" data-fr="Vous">You</span><p data-en="Thanks. Send me the monthly report." data-fr="Merci. Envoie-moi le rapport mensuel.">Thanks. Send me the monthly report.</p></div>
           <div class="msg m-vesta"><span class="who" data-en="VESTA" data-fr="VESTA">VESTA</span><p data-en="Your monthly savings report is ready." data-fr="Votre rapport d'économies mensuel est prêt.">Your monthly savings report is ready.</p><p class="sub" data-en="Would you like to see the breakdown?" data-fr="Souhaitez-vous voir le détail ?">Would you like to see the breakdown?</p></div>
         </div>
       </div>
