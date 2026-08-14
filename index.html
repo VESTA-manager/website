@@ -156,7 +156,7 @@ section:first-of-type{border-top:none}
 .cbub.b{top:43%;left:-19%}
 .cbub.c{bottom:3%;right:-13%}
 @media(max-width:1150px){.meet-grid3{gap:64px}.cbub{width:170px;padding:11px 13px}.cbub p{font-size:12.5px}.cbub.a{right:-14%}.cbub.b{left:-14%}.cbub.c{right:-12%}}
-@media(max-width:940px){.meet-grid3{grid-template-columns:1fr;gap:40px}.meet-phone img{height:auto;max-height:none;width:min(360px,72%);margin:0 auto}.cbub{position:static;width:100%;max-width:380px;margin:0 auto;align-self:center}.meet-phone{flex-direction:column;align-items:center;gap:14px}}
+@media(max-width:940px){.meet-grid3{grid-template-columns:1fr;gap:40px}.meet-phone{--phone-w:min(360px,72%)}.meet-phone img{height:auto;max-height:none;width:var(--phone-w);margin:0 auto}.cbub{position:static;width:var(--phone-w);max-width:none;margin:0 auto;align-self:center}.meet-phone{flex-direction:column;align-items:center;gap:14px}}
 .meet-visual{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);align-self:center;background:var(--panel);display:flex;align-items:center}
 .meet-visual img{width:100%;height:auto;display:block}
 .meet-right{display:flex;flex-direction:column;justify-content:center}
@@ -173,10 +173,10 @@ section:first-of-type{border-top:none}
 
 /* ---------- THE RETURN ---------- */
 .return{background:var(--cream2)}
-.ret-grid{display:grid;grid-template-columns:0.72fr 1.28fr;gap:48px;align-items:start}
-.ret-side{display:flex;flex-direction:column;align-items:flex-start;align-self:center}
-.ret-side-note{color:var(--muted);font-size:15px;line-height:1.6;max-width:34ch}
-.curswitch{display:inline-flex;background:var(--panel);border:1px solid var(--line2);border-radius:999px;padding:4px;margin-top:18px}
+.ret-grid{display:block}
+.ret-side{display:flex;flex-direction:row;align-items:center;flex-wrap:wrap;gap:12px 20px;margin-bottom:24px}
+.ret-side-note{color:var(--muted);font-size:15px;line-height:1.6;max-width:none}
+.curswitch{display:inline-flex;background:var(--panel);border:1px solid var(--line2);border-radius:999px;padding:4px;margin-top:0}
 .curswitch button{border:none;background:none;font:inherit;font-size:12.5px;font-weight:600;color:var(--muted);padding:7px 16px;border-radius:999px;cursor:pointer;transition:.18s}
 .curswitch button.on{background:var(--green);color:#fff}
 .ret-panel{background:var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:26px 28px}
@@ -275,7 +275,6 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
   .hero-inner{padding-inline:20px;padding-block:34px 12px}
   .cards6,.ex-grid{grid-template-columns:1fr}
   .feat-col{grid-template-columns:1fr}
-  .cbub{max-width:100%}
   .pillars{gap:16px;max-width:none}
   .hero-band .row{grid-template-columns:1fr 1fr}
   .hero-band .stat{border-right:none;padding:14px 0 4px}
@@ -376,7 +375,6 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
     <div class="section-head">
       <div class="eyebrow"><span class="kicker" data-en="One Living Map" data-fr="Une carte vivante">One Living Map</span><span class="lbl" data-en="02" data-fr="02">02</span></div>
       <h2 class="section-title" data-en='Your entire home, <span class="acc">in your hand.</span>' data-fr='Toute votre maison, <span class="acc">dans votre main.</span>'>Your entire home, <span class="acc">in your hand.</span></h2>
-      <p class="section-subtitle" data-en="One visual map of the entire property." data-fr="Une carte visuelle de toute la propriété.">One visual map of the entire property.</p>
     </div>
     <div class="lm-grid">
       <div class="lm-body">
