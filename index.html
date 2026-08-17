@@ -330,7 +330,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 #demoOverlay.open{display:flex;opacity:1}
 #demoModal{background:var(--panel);border:1px solid var(--line);border-radius:20px;box-shadow:0 40px 90px -30px rgba(40,38,30,.6);max-width:470px;width:100%;padding:30px 30px 26px;position:relative;max-height:92vh;overflow:auto;transform:scale(.94) translateY(10px);transition:transform .3s cubic-bezier(.22,1,.36,1)}
 #demoOverlay.open #demoModal{transform:none}
-#demoClose{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line2);background:#fff;color:var(--ink2);font-size:15px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:.2s}
+#demoClose{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line2);background:#fff;color:var(--ink2);font-size:15px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:.2s;z-index:2}
 #demoClose:hover{border-color:var(--green);color:var(--green)}
 #demoClose:active{transform:scale(.94)}
 #demoTitle{font-family:'Playfair Display',serif;font-weight:600;font-size:24px;line-height:1.15;letter-spacing:-.01em;color:var(--ink);padding-right:30px}
@@ -342,8 +342,13 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 #demoForm textarea{resize:vertical;min-height:70px}
 #demoSubmit{margin-top:6px;width:100%;padding:14px 18px;font-size:12.5px}
 #demoStatus{font-size:13.5px;line-height:1.5;margin-top:4px;text-align:center}
-#demoStatus.ok{color:var(--green);font-weight:600}
 #demoStatus.err{color:#b23b3b}
+#demoSuccess{text-align:center;padding:10px 4px 6px}
+#demoSuccess .ok-ic{width:58px;height:58px;border-radius:50%;background:var(--green-soft);color:var(--green);display:grid;place-items:center;margin:4px auto 16px}
+#demoSuccess .ok-ic svg{width:29px;height:29px}
+#demoSuccess h3{font-family:'Playfair Display',serif;font-weight:600;font-size:23px;color:var(--ink);margin-bottom:9px}
+#demoSuccess p{font-size:14px;color:var(--muted);line-height:1.55;max-width:34ch;margin:0 auto 20px}
+#demoDone{padding:12px 30px;font-size:12.5px}
 @media(prefers-reduced-transparency:reduce){#demoOverlay{background:rgba(18,20,15,.75);backdrop-filter:none;-webkit-backdrop-filter:none}}
 
 </style>
@@ -766,27 +771,40 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
       <button type="submit" class="btn-demo" id="demoSubmit" data-en="Send request" data-fr="Envoyer la demande">Send request</button>
       <div id="demoStatus" role="status" aria-live="polite"></div>
     </form>
+    <div id="demoSuccess" style="display:none">
+      <div class="ok-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3 data-en="Thank you!" data-fr="Merci !">Thank you!</h3>
+      <p data-en="Your request has been sent. Our team will get back to you shortly." data-fr="Votre demande a bien été envoyée. Notre équipe vous recontacte rapidement.">Your request has been sent. Our team will get back to you shortly.</p>
+      <button type="button" class="btn-demo" id="demoDone" data-en="Close" data-fr="Fermer">Close</button>
+    </div>
   </div>
 </div>
 <script>
 (function(){
   var FORMSPREE="https://formspree.io/f/xljrpooj";
-  var ov=document.getElementById("demoOverlay"),form=document.getElementById("demoForm"),status=document.getElementById("demoStatus"),closeBtn=document.getElementById("demoClose");
+  var ov=document.getElementById("demoOverlay"),form=document.getElementById("demoForm"),status=document.getElementById("demoStatus"),
+      closeBtn=document.getElementById("demoClose"),titleEl=document.getElementById("demoTitle"),subEl=document.getElementById("demoSub"),
+      successEl=document.getElementById("demoSuccess"),doneBtn=document.getElementById("demoDone"),submitBtn=document.getElementById("demoSubmit");
   function lang(){return (document.documentElement.lang||"en").slice(0,2);}
   function ph(){var fr=lang()==="fr";var m={name:fr?"Prénom Nom":"First and last name",email:fr?"vous@exemple.com":"you@example.com",phone:"+62 …",location:fr?"Bali, Indonésie":"Bali, Indonesia",message:fr?"Parlez-nous de votre bien…":"Tell us about your property…"};for(var k in m){var el=form.querySelector("[name='"+k+"']");if(el)el.placeholder=m[k];}}
-  function open(){ov.classList.add("open");ph();document.body.style.overflow="hidden";setTimeout(function(){var f=form.querySelector("[name=name]");if(f)f.focus();},60);}
-  function close(){ov.classList.remove("open");document.body.style.overflow="";}
+  function showSuccess(){titleEl.style.display="none";subEl.style.display="none";form.style.display="none";successEl.style.display="block";}
+  function resetModal(){titleEl.style.display="";subEl.style.display="";form.style.display="";successEl.style.display="none";status.textContent="";status.className="";submitBtn.disabled=false;form.reset();}
+  function open(){resetModal();ov.classList.add("open");ph();document.body.style.overflow="hidden";setTimeout(function(){var f=form.querySelector("[name=name]");if(f)f.focus();},60);}
+  function close(){ov.classList.remove("open");document.body.style.overflow="";setTimeout(resetModal,260);}
   document.querySelectorAll("a.btn-demo").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();open();});});
   closeBtn.addEventListener("click",close);
+  doneBtn.addEventListener("click",close);
   ov.addEventListener("click",function(e){if(e.target===ov)close();});
   document.addEventListener("keydown",function(e){if(e.key==="Escape"&&ov.classList.contains("open"))close();});
   form.addEventListener("submit",function(e){
     e.preventDefault();var fr=lang()==="fr";
-    if(FORMSPREE.indexOf("REPLACE_ME")>=0){status.className="ok";status.textContent=fr?"(Aperçu) Formulaire prêt — endpoint Formspree à configurer.":"(Preview) Form ready — Formspree endpoint to configure.";form.reset();return;}
-    status.className="";status.textContent=fr?"Envoi…":"Sending…";
+    status.className="";status.textContent=fr?"Envoi…":"Sending…";submitBtn.disabled=true;
     fetch(FORMSPREE,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}})
-    .then(function(r){if(r.ok){form.style.display="none";status.className="ok";status.textContent=fr?"Merci ! Votre demande a bien été envoyée.":"Thank you! Your request has been sent.";}else{status.className="err";status.textContent=fr?"Une erreur est survenue. Réessayez ou écrivez à hello@vesta-services.org.":"Something went wrong. Please retry or email hello@vesta-services.org.";}})
-    .catch(function(){status.className="err";status.textContent=fr?"Erreur réseau. Réessayez.":"Network error. Please retry.";});
+    .then(function(r){
+      if(r.ok){showSuccess();}
+      else{return r.json().then(function(d){var msg=(d&&d.errors&&d.errors[0]&&d.errors[0].message)?d.errors[0].message:(fr?"Une erreur est survenue. Réessayez ou écrivez à hello@vesta-services.org.":"Something went wrong. Please retry or email hello@vesta-services.org.");status.className="err";status.textContent=msg;submitBtn.disabled=false;}).catch(function(){status.className="err";status.textContent=fr?"Une erreur est survenue. Réessayez.":"Something went wrong. Please retry.";submitBtn.disabled=false;});}
+    })
+    .catch(function(){status.className="err";status.textContent=fr?"Erreur réseau. Réessayez.":"Network error. Please retry.";submitBtn.disabled=false;});
   });
 })();
 </script>
