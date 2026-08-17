@@ -324,6 +324,28 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
     mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.5) 10.2%,rgba(0,0,0,.9) 23.8%,#000 34%) !important}
   .hero-copy{position:absolute;left:31px;top:171px;width:318px;z-index:3;align-self:auto;margin:0}
 }
+
+/* ---- Demo request modal ---- */
+#demoOverlay{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(18,20,15,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .25s ease}
+#demoOverlay.open{display:flex;opacity:1}
+#demoModal{background:var(--panel);border:1px solid var(--line);border-radius:20px;box-shadow:0 40px 90px -30px rgba(40,38,30,.6);max-width:470px;width:100%;padding:30px 30px 26px;position:relative;max-height:92vh;overflow:auto;transform:scale(.94) translateY(10px);transition:transform .3s cubic-bezier(.22,1,.36,1)}
+#demoOverlay.open #demoModal{transform:none}
+#demoClose{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line2);background:#fff;color:var(--ink2);font-size:15px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:.2s}
+#demoClose:hover{border-color:var(--green);color:var(--green)}
+#demoClose:active{transform:scale(.94)}
+#demoTitle{font-family:'Playfair Display',serif;font-weight:600;font-size:24px;line-height:1.15;letter-spacing:-.01em;color:var(--ink);padding-right:30px}
+#demoSub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.55}
+#demoForm{margin-top:18px;display:grid;gap:13px}
+#demoForm label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:-6px}
+#demoForm input,#demoForm textarea{font:inherit;font-size:14.5px;color:var(--ink);background:#fff;border:1px solid var(--line2);border-radius:11px;padding:11px 13px;width:100%;transition:border-color .18s ease,box-shadow .18s ease}
+#demoForm input:focus,#demoForm textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(31,122,77,.12)}
+#demoForm textarea{resize:vertical;min-height:70px}
+#demoSubmit{margin-top:6px;width:100%;padding:14px 18px;font-size:12.5px}
+#demoStatus{font-size:13.5px;line-height:1.5;margin-top:4px;text-align:center}
+#demoStatus.ok{color:var(--green);font-weight:600}
+#demoStatus.err{color:#b23b3b}
+@media(prefers-reduced-transparency:reduce){#demoOverlay{background:rgba(18,20,15,.75);backdrop-filter:none;-webkit-backdrop-filter:none}}
+
 </style>
 </head>
 <body>
@@ -722,5 +744,52 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 })();
 (function(){var hdr=document.querySelector('header');function s(){if(hdr)hdr.classList.toggle('scrolled',scrollY>4);}addEventListener('scroll',s,{passive:true});s();})();
 </script>
+
+<div id="demoOverlay" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
+  <div id="demoModal">
+    <button id="demoClose" type="button" aria-label="Close">✕</button>
+    <h3 id="demoTitle" data-en="Request a private demonstration" data-fr="Demander une démonstration privée">Request a private demonstration</h3>
+    <p id="demoSub" data-en="Leave your details and our team will get back to you." data-fr="Laissez vos coordonnées, notre équipe vous recontacte.">Leave your details and our team will get back to you.</p>
+    <form id="demoForm" novalidate>
+      <label data-en="Full name" data-fr="Nom complet">Full name</label>
+      <input name="name" type="text" autocomplete="name" required>
+      <label data-en="Email" data-fr="Email">Email</label>
+      <input name="email" type="email" autocomplete="email" required>
+      <label data-en="Phone" data-fr="Téléphone">Phone</label>
+      <input name="phone" type="tel" autocomplete="tel">
+      <label data-en="Property location" data-fr="Localisation du bien">Property location</label>
+      <input name="location" type="text">
+      <label data-en="Message" data-fr="Message">Message</label>
+      <textarea name="message" rows="3"></textarea>
+      <input type="hidden" name="_subject" value="Nouvelle demande de démonstration — VESTA">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <button type="submit" class="btn-demo" id="demoSubmit" data-en="Send request" data-fr="Envoyer la demande">Send request</button>
+      <div id="demoStatus" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var FORMSPREE="https://formspree.io/f/xljrpooj";
+  var ov=document.getElementById("demoOverlay"),form=document.getElementById("demoForm"),status=document.getElementById("demoStatus"),closeBtn=document.getElementById("demoClose");
+  function lang(){return (document.documentElement.lang||"en").slice(0,2);}
+  function ph(){var fr=lang()==="fr";var m={name:fr?"Prénom Nom":"First and last name",email:fr?"vous@exemple.com":"you@example.com",phone:"+62 …",location:fr?"Bali, Indonésie":"Bali, Indonesia",message:fr?"Parlez-nous de votre bien…":"Tell us about your property…"};for(var k in m){var el=form.querySelector("[name='"+k+"']");if(el)el.placeholder=m[k];}}
+  function open(){ov.classList.add("open");ph();document.body.style.overflow="hidden";setTimeout(function(){var f=form.querySelector("[name=name]");if(f)f.focus();},60);}
+  function close(){ov.classList.remove("open");document.body.style.overflow="";}
+  document.querySelectorAll("a.btn-demo").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();open();});});
+  closeBtn.addEventListener("click",close);
+  ov.addEventListener("click",function(e){if(e.target===ov)close();});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&ov.classList.contains("open"))close();});
+  form.addEventListener("submit",function(e){
+    e.preventDefault();var fr=lang()==="fr";
+    if(FORMSPREE.indexOf("REPLACE_ME")>=0){status.className="ok";status.textContent=fr?"(Aperçu) Formulaire prêt — endpoint Formspree à configurer.":"(Preview) Form ready — Formspree endpoint to configure.";form.reset();return;}
+    status.className="";status.textContent=fr?"Envoi…":"Sending…";
+    fetch(FORMSPREE,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}})
+    .then(function(r){if(r.ok){form.style.display="none";status.className="ok";status.textContent=fr?"Merci ! Votre demande a bien été envoyée.":"Thank you! Your request has been sent.";}else{status.className="err";status.textContent=fr?"Une erreur est survenue. Réessayez ou écrivez à hello@vesta-services.org.":"Something went wrong. Please retry or email hello@vesta-services.org.";}})
+    .catch(function(){status.className="err";status.textContent=fr?"Erreur réseau. Réessayez.":"Network error. Please retry.";});
+  });
+})();
+</script>
+
 </body>
 </html>
