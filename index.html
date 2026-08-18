@@ -393,7 +393,7 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 }
 
 /* ---- LIVE VIEW pill ---- */
-.liveview-top{display:flex;justify-content:center;margin:4px 0 34px}
+.liveview-top{display:flex;justify-content:center;margin:0 0 36px;padding-top:34px}
 .lv-pill{display:inline-flex;align-items:center;gap:13px;padding:11px 24px;border-radius:999px;background:rgba(6,10,8,.85);border:1px solid rgba(70,225,140,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 14px 34px -16px rgba(6,10,8,.55)}
 .lv-dot{width:8px;height:8px;border-radius:50%;background:#46e18c;box-shadow:0 0 10px rgba(70,225,140,.95);animation:lvpulse 1.6s ease-in-out infinite;flex:none}
 @keyframes lvpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
@@ -1012,18 +1012,24 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
       if(lmText)lmText.style.opacity=revL.toFixed(3);
     }
     /* MEET : pendant la cascade, remonter doucement le bloc pour garder toutes les bulles visibles */
-    if(meetWrap&&meetGrid){
-      var gb=pageBox(meetGrid);
-      if(gb){
-        var gridBottomV=gb.y+gb.h-startOf(meetSec);
-        var needUp=Math.max(0,gridBottomV+24-innerHeight);
+    if(meetWrap&&phone){
+      var pbb=pageBox(phone);
+      if(pbb){
+        var stM=startOf(meetSec);
+        var phoneCenterV=pbb.y+pbb.h/2-stM;
+        var targetC=HEAD+(innerHeight-HEAD)/2;
+        var needUp=Math.max(0,phoneCenterV-targetC);
         var lift=needUp*(1-Math.pow(1-seg(cur.c,0,0.3),3));
         meetWrap.style.transform='translateY(-'+lift.toFixed(1)+'px)';
       }
     }
     if(phone){
       var bigM=1-zcurve(cur.m);
-      phone.style.transform=zoomTo(phone,bigM,1.9,meetSec);
+      /* si la zone [header..bas de page] est plus petite que le téléphone, le réduire juste assez pour qu'il tienne, pendant la phase cascade */
+      var fitK=1, pfb=pageBox(phone);
+      if(pfb&&pfb.h)fitK=Math.min(1,(innerHeight-HEAD-24)/pfb.h);
+      var kBlend=1+(fitK-1)*seg(cur.c,0,0.3);
+      phone.style.transform=zoomTo(phone,bigM,1.9,meetSec)+' scale('+kBlend.toFixed(4)+')';
       var revM=seg(cur.m,0.04,0.90);
       if(meetHead)meetHead.style.opacity=revM.toFixed(3);
       if(liveTop){liveTop.style.opacity=revM.toFixed(3);liveTop.style.transform='scale('+(0.94+0.06*revM).toFixed(3)+')';}
