@@ -375,7 +375,6 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 /* ---- MOBILE light scroll effects ---- */
 @media(max-width:940px){
   html.sfxm .hero,html.sfxm #livingmap,html.sfxm #meet{overflow:clip}
-  html.sfxm .hero-visual img,html.sfxm .lm-stage,html.sfxm .meet-phone{will-change:transform}
   html.sfxm .chat-col .msg{opacity:0;will-change:transform,opacity}
   html.sfxm .chat-col .cbub{opacity:0}
 }
@@ -1081,7 +1080,6 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 <script>
 (function(){
   if(!document.documentElement.classList.contains('sfxm'))return;
-  var imgs=[document.querySelector('.hero-visual img'),document.querySelector('.lm-stage'),document.querySelector('.meet-phone')].filter(Boolean);
   var msgs=[].slice.call(document.querySelectorAll('.chat-col .msg')),
       bubs=[].slice.call(document.querySelectorAll('.chat-col .cbub'));
   function cl(v){return v<0?0:(v>1?1:v);}
@@ -1090,11 +1088,6 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
   function upd(){
     ticking=false;
     var vh=innerHeight||1;
-    imgs.forEach(function(el){
-      var r=el.getBoundingClientRect();
-      var p=cl((vh*0.95-r.top)/(vh*0.55));
-      el.style.transform='scale('+(1.07-0.07*eo(p)).toFixed(4)+')';
-    });
     msgs.forEach(function(m){
       var r=m.getBoundingClientRect();
       var e=eo(cl((vh*0.92-r.top)/(vh*0.18)));
