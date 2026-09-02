@@ -1,0 +1,57 @@
+# VESTA
+
+> VESTA is the private AI manager for premium villas. The service continuously monitors a
+> property's critical systems (energy, water, pumps, security, access, connectivity, local
+> weather), alerts the right person in plain language, and proves every month what was
+> prevented and saved. This is not comfort home automation: it is measured resilience.
+
+## What VESTA does
+- 24/7 monitoring of critical systems: pumps, inverter, batteries, water reserves, meters,
+  access control, cameras, internet link, local weather
+- Early detection of drift before failure (a pump's electrical signature, a water leak,
+  insufficient battery autonomy, a fibre outage)
+- Contextual alerts: the owner sees green / amber / red, the on-site caretaker receives an
+  actionable task on their phone
+- Automatic failover: fibre to satellite, grid to battery or solar
+- Monthly report with figures: incidents prevented, energy and water saved, recommended actions
+
+## Principles
+- **No physical action without human validation.** VESTA proposes, a human decides.
+- **Local first.** The intelligence runs on a local unit inside the property. The home keeps
+  working and watching over itself without internet.
+- **Open standards, no lock-in.** Compatible with Zigbee, Matter, Wi-Fi and Bluetooth devices
+  (Aqara, Hikvision, Shelly, Ubiquiti, Sonos, Philips Hue, Tuya, IKEA, Starlink, Ecowitt and
+  hundreds more), and with Apple Home, Google Home, Amazon Alexa and Home Assistant.
+  The client owns the installation and the data.
+- **Zero jargon.** No technical identifier is ever shown to the end user.
+
+## Who it is for
+- Premium villa owners, often away from their property
+- Second homes and high-end rentals
+- Estate managers and concierge companies overseeing several properties
+
+## How it deploys
+1. Free diagnostic (45 min, remote): inventory of equipment that is already usable
+2. Connection to existing devices: most inverters, meters, pumps, cameras and access systems
+   on the market are already compatible
+3. Targeted additions for blind spots only, quoted separately
+4. Commissioning, continuous monitoring, monthly report
+
+Requirements: an internet connection, an accessible electrical panel, a local unit that we
+supply. No imposed brand, no reinstallation of the existing smart-home setup.
+
+## Pricing
+- One-off installation, from S$9,800 (existing equipment connected) 
+- Optional care plan from S$490 / month, cancel anytime
+- The client owns all equipment and data
+
+## References
+- The Lys House, Bali: pilot villa, live, 80+ devices under continuous watch, with a 3D
+  digital twin on a wall tablet
+- Landed house, Singapore: in deployment (2026)
+
+## Contact
+- Email: hello@vesta-services.org
+- Free 30-minute demo: https://vesta-services.org/
+- Based in Singapore, operating in Singapore and Bali
+- Languages: French, English
