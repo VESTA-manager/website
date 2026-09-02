@@ -19,7 +19,7 @@
 - **No physical action without human validation.** VESTA proposes, a human decides.
 - **Local first.** The intelligence runs on a local unit inside the property. The home keeps
   working and watching over itself without internet.
-- **Open standards, no lock-in.** Compatible with Zigbee, Matter, Wi-Fi and Bluetooth devices
+- **Open standards, no lock-in.** Compatible with Zigbee, Matter, Thread, Wi-Fi, Bluetooth and KNX devices
   (Aqara, Hikvision, Shelly, Ubiquiti, Sonos, Philips Hue, Tuya, IKEA, Starlink, Ecowitt and
   hundreds more), and with Apple Home, Google Home, Amazon Alexa and Home Assistant.
   The client owns the installation and the data.
