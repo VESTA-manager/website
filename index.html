@@ -919,10 +919,10 @@ p.sub{font-size:12.5px;margin-top:4px}
             <span class="rp-range" data-en="1-year trend" data-fr="Tendance 1 an">1-year trend</span>
           </div>
           <div class="curswitch" id="curSwitch">
-            <button type="button" data-cur="IDR" class="on">IDR</button>
-            <button type="button" data-cur="SGD">SGD</button>
-            <button type="button" data-cur="USD">USD</button>
+            <button type="button" data-cur="USD" class="on">USD</button>
             <button type="button" data-cur="EUR">EUR</button>
+            <button type="button" data-cur="SGD">SGD</button>
+            <button type="button" data-cur="IDR">IDR</button>
           </div>
         </div>
         <div class="chart-card">
@@ -1092,6 +1092,12 @@ p.sub{font-size:12.5px;margin-top:4px}
   }
   curSwitch.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setCur(b.dataset.cur)})});
 
+  /* ---------- defaults (avant l'estimateur : applyEst() lit le bouton .on au chargement) ---------- */
+  var savedL=null,savedC=null;
+  try{savedL=localStorage.getItem('vesta-lang');savedC=localStorage.getItem('vesta-cur')}catch(e){}
+  setLang(savedL||'en');
+  setCur(savedC||'USD');
+
   /* ---------- estimateur d'économies ---------- */
   var estBox=document.getElementById('estimator');
   if(estBox){
@@ -1114,7 +1120,7 @@ p.sub{font-size:12.5px;margin-top:4px}
         el.setAttribute('data-axis',String(Math.round(+el.getAttribute('data-abase')*k)));
       });
       var on=curSwitch.querySelector('button.on');
-      setCur(on?on.dataset.cur:'IDR');
+      setCur(on?on.dataset.cur:'USD');
     }
     estBox.querySelectorAll('.opts').forEach(function(g){
       g.querySelectorAll('button').forEach(function(b){
@@ -1152,14 +1158,6 @@ p.sub{font-size:12.5px;margin-top:4px}
   document.querySelectorAll('.mcard, .meet-quote, .ret-foot, .ret-grid > div, .lm-grid > div').forEach(function(el){el.classList.add('rv')});
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
-
-  /* ---------- defaults ---------- */
-  var savedL=null,savedC=null;
-  try{savedL=localStorage.getItem('vesta-lang');savedC=localStorage.getItem('vesta-cur')}catch(e){}
-  var nav=(navigator.language||'en').toLowerCase();
-  var locales=(navigator.languages||[nav]).join(',').toLowerCase();
-  setLang(savedL||(nav.indexOf('fr')===0?'fr':'en'));
-  setCur(savedC||(/-id|^id\b/.test(locales)?'IDR':(/-sg/.test(locales)?'SGD':'USD')));
 })();
 (function(){var hdr=document.querySelector('header');function s(){if(hdr)hdr.classList.toggle('scrolled',scrollY>4);}addEventListener('scroll',s,{passive:true});s();})();
 </script>
