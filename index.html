@@ -484,8 +484,6 @@ footer.foot{background:#0c0d0a;color:#8b877d;padding:26px 0;border:none}
 .cta-sub{margin-top:14px;color:rgba(255,255,255,.75);font-size:13.5px;letter-spacing:.04em}
 .cta-model{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
 .cta-model span{padding:8px 16px;border:1px solid rgba(255,255,255,.22);border-radius:999px;font-size:13px;color:rgba(255,255,255,.85)}
-.cta-price{margin-top:18px;color:#fff;font-size:15.5px}
-.cta-price b{font-weight:700}
 /* ---------- FOOTER v2 ---------- */
 .foot2{background:var(--cream2);border-top:1px solid var(--line);padding:52px 0 30px}
 .foot2 .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:34px;margin-bottom:34px}
@@ -1009,7 +1007,6 @@ p.sub{font-size:12.5px;margin-top:4px}
     <h2 data-en='Experience VESTA, <span class="g">privately.</span>' data-fr='Découvrez VESTA, <span class="g">en privé.</span>'>Experience VESTA, <span class="g">privately.</span></h2>
     <p data-en="Discover how VESTA can make your home intelligently autonomous." data-fr="Découvrez comment VESTA rend votre maison intelligemment autonome.">Discover how VESTA can make your home intelligently autonomous.</p>
     <a class="btn-demo" href="/cdn-cgi/l/email-protection#2a424f4646456a5c4f595e4b07594f585c43494f590445584d15595f48404f495e177a58435c4b5e4f0f181a7c6f797e6b0f181a6e4f474544595e584b5e434544" data-en="Book a free demo (30 min)" data-fr="Réserver une démo gratuite (30 min)">Book a free demo (30 min)</a>
-    <div class="cta-price" data-en='Installation from <b data-amt="118000000">Rp 118.000.000</b> · optional care plan from <b data-amt="5900000">Rp 5.900.000</b><span data-en=" / month" data-fr=" / mois"> / month</span>' data-fr='Installation à partir de <b data-amt="118000000">Rp 118.000.000</b> · suivi en option à partir de <b data-amt="5900000">Rp 5.900.000</b> / mois'>Installation from <b data-amt="118000000">Rp 118.000.000</b> · optional care plan from <b data-amt="5900000">Rp 5.900.000</b> / month</div>
     <div class="cta-model">
       <span data-en="One-off installation" data-fr="Installation en une fois">One-off installation</span>
       <span data-en="Monitoring optional, cancel anytime" data-fr="Suivi en option, résiliable à tout moment">Monitoring optional, cancel anytime</span>
@@ -1103,7 +1100,6 @@ p.sub{font-size:12.5px;margin-top:4px}
   if(estBox){
     document.querySelectorAll('[data-amt]').forEach(function(el){if(!el.hasAttribute('data-base'))el.setAttribute('data-base',el.getAttribute('data-amt'))});
     document.querySelectorAll('[data-axis]').forEach(function(el){if(!el.hasAttribute('data-abase'))el.setAttribute('data-abase',el.getAttribute('data-axis'))});
-    var noScale=document.querySelectorAll('.cta-price [data-amt]');
     function estK(){
       var size=+((estBox.querySelector('[data-est=size] .on')||{}).dataset||{}).k||1;
       var bill=+((estBox.querySelector('[data-est=bill] .on')||{}).dataset||{}).k||1;

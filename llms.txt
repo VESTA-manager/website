@@ -40,9 +40,9 @@
 Requirements: an internet connection, an accessible electrical panel, a local unit that we
 supply. No imposed brand, no reinstallation of the existing smart-home setup.
 
-## Pricing
-- One-off installation, from S$9,800 (existing equipment connected) 
-- Optional care plan from S$490 / month, cancel anytime
+## Commercial model
+- One-off installation, quoted after the free diagnostic
+- Optional care plan, monthly, cancel anytime
 - The client owns all equipment and data
 
 ## References
